@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6343948689807963"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoapp - Contact Us</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #10a37f;
+            --secondary-color: #f7f7f7;
+            --text-color: #353740;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 40px;
+            border-bottom: 1px solid #e5e5e5;
+            background-color: #ffffff;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-text {
+            font-weight: 600;
+            font-size: 22px;
+            color: var(--text-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        
+        .nav-item:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-item.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Typography */
+        h1, h2, h3 {
+            transition: color 0.3s ease;
+        }
+        
+        h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-weight: 600;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            font-weight: 500;
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        
+        /* Buttons */
+        .try-button, .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+        }
+        
+        .try-button:hover, .btn:hover {
+            background-color: #0c8968;
+            transform: scale(1.05);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .contact-image {
+            flex: 1 1 300px;
+            max-width: 500px;
+        }
+        
+        .contact-image img {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            flex: 0 0 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 50px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .faq-answer {
+            line-height: 1.6;
+        }
+        
+        /* Social Media */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Map */
+        .map-container {
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: #e6f7ef;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #0c8968;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--secondary-color);
+            padding: 30px 40px;
+            text-align: center;
+            color: #444;
+            font-size: 15px;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="tuto1.jpg" alt="Tutoapp Logo" class="logo-img"> 
+            <div class="logo-text">Tutoapp</div>
+        </div>
+        
+        <div class="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="guide.html" class="nav-item">Guide</a>
+            <a href="contact.html" class="nav-item active">Contact Us</a>
+            <a href="aboutus.html" class="nav-item">About Us</a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="content">
+            
+            <h1>Contact Us</h1>
+            <p>Have questions about Tutoapp? We're here to help! Reach out to our team using any of the methods below.</p>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <div class="success-message" id="success-message">
+                        Your message has been sent successfully! We'll get back to you shortly.
+                    </div>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+
+                    
+                </div>
+                <div class="contact-image">
+                    <img src="contact.jpg" alt="Contact Illustration">
+                  </div>
+                
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Tutoapp. All rights reserved. | Powered by Cookies Tech | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms & Conditions</a></p>
+    </footer>
+    
+    <script>
+        (function(){
+          // Initialize with your User ID
+          emailjs.init("yj_4JxMv0J2J3vpHq");
+        })();
+      </script>
+      
+      <script>
+        // Form submission handler with detailed error logging
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Show success message while testing connection
+          document.getElementById('success-message').textContent = "Sending email...";
+          document.getElementById('success-message').style.display = 'block';
+          
+          // Disable submit button
+          const submitButton = this.querySelector('button[type="submit"]');
+          const originalText = submitButton.textContent;
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending...';
+          
+          // Create a simple params object for better debugging
+          const templateParams = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value,
+            time: new Date().toLocaleString()
+          };
+      
+          // Method 1: Use sendForm (uses the actual form)
+          // emailjs.sendForm('service_vpkllnh', 'template_ku74cwl', this, 'yj_4JxMv0J2J3vpHq')
+          
+          // Method 2: Use send (manually passing parameters - more reliable for debugging)
+          emailjs.send('service_12av46s', 'template_ld13t6e', templateParams)
+            .then(function(response) {
+              console.log('SUCCESS!', response.status, response.text);
+              
+              // Show success message
+              document.getElementById('success-message').textContent = 
+                'Email sent successfully! We\'ll get back to you shortly.';
+              
+              // Reset the form
+              document.getElementById('contactForm').reset();
+              
+              // Hide the success message after 5 seconds
+              setTimeout(function() {
+                document.getElementById('success-message').style.display = 'none';
+              }, 5000);
+              
+              // Reset button state
+              submitButton.disabled = false;
+              submitButton.textContent = originalText;
+            }, function(error) {
+              // Show detailed error information
+              console.error('FAILED...', error);
+              
+              // Update error message with specific error
+              let errorMsg = 'Sorry, there was an error sending your message: ';
+              if (error.text) {
+                errorMsg += error.text;
+              } else {
+                errorMsg += 'Please check your EmailJS configuration.';
+              }
+              
+              document.getElementById('success-message').textContent = errorMsg;
+              document.getElementById('success-message').style.backgroundColor = '#ffecec';
+              document.getElementById('success-message').style.color = '#d63939';
+              document.getElementById('success-message').style.borderLeft = '4px solid #d63939';
+              
+              // Reset button state
+              submitButton.disabled = false;
+              submitButton.textContent = originalText;
+            });
+        });
+      </script>
+</body>
+</html>

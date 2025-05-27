@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6343948689807963"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tutoapp</title>
+    <style>
+        :root {
+            --primary-color: #10a37f;
+            --secondary-color: #f7f7f7;
+            --text-color: #353740;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 40px;
+            border-bottom: 1px solid #e5e5e5;
+            background-color: #ffffff;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .logo-text {
+            font-weight: 600;
+            font-size: 22px;
+            color: var(--text-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        
+        .nav-item:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-item.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            width: 100%;
+        }
+        
+        .about-card {
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+            color: var(--text-color);
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-weight: 600;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background-color: var(--secondary-color);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin: 20px 0;
+        }
+        
+        /* Company Section */
+        .company-section {
+            background-color: var(--secondary-color);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin: 15px 0;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        .company-section:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .team-card {
+            background-color: var(--secondary-color);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .team-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover .team-photo {
+            transform: scale(1.05);
+        }
+        
+        .photo-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), #0c8968);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover .photo-placeholder {
+            transform: scale(1.05);
+        }
+        
+        .team-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+        
+        .team-role {
+            font-size: 16px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .team-company {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--secondary-color);
+            padding: 30px 40px;
+            text-align: center;
+            color: #444;
+            font-size: 15px;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .about-card {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .team-card {
+                padding: 20px;
+            }
+            
+            .team-photo,
+            .photo-placeholder {
+                width: 100px;
+                height: 100px;
+                font-size: 30px;
+            }
+            
+            .team-name {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="tuto1.jpg" alt="Tutoapp Logo" class="logo-img"> 
+            <div class="logo-text">Tutoapp</div>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="guide.html" class="nav-item">Guide</a>
+            <a href="contact.html" class="nav-item">Contact Us</a>
+            <a href="aboutus.html" class="nav-item active">About Us</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="about-card">
+            <h1>About Us</h1>
+            
+            <div class="highlight-box">
+                <p>Tutoapp is an innovative platform designed to empower students and professionals in developing their communication skills through AI-driven mock interviews, public speaking simulations, and real-time voice assessments. Our platform delivers a realistic and supportive environment that helps users build confidence, improve articulation, and prepare effectively for real-world scenarios.</p>
+                <p>Whether you're gearing up for campus placements, competitive exams, or job interviews, Tutoapp is your personal practice ground—smart, intuitive, and results-driven.</p>
+            </div>
+            
+            <div class="company-section">
+                <h2>Powered by Cookies Tech</h2>
+                <p>Tutoapp is proudly powered by <strong>Cookies Tech</strong>, a forward-looking technology company focused on creating impactful, user-centric solutions in education, AI, and productivity. Cookies Tech believes in the power of innovation to transform learning experiences for everyone.</p>
+            </div>
+            
+            <h2>Our Team</h2>
+            <p>Together, our dedicated team brings a blend of vision, technical expertise, and execution excellence to make Tutoapp a powerful tool for personal and professional growth.</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <!-- Replace the src attribute with your actual image path -->
+                    <img src="ananth.jpg" alt="Anantha Krishnan.V" class="team-photo" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder" style="display: none;">AK</div>
+                    <div class="team-name">Anantha Krishnan.V</div>
+                    <div class="team-role">Executive Director</div>
+                    <div class="team-company">Cookies Tech</div>
+                </div>
+                
+                <div class="team-card">
+                    <!-- Replace the src attribute with your actual image path -->
+                    <img src="sanjay.jpg" alt="Sanjay Kumar" class="team-photo" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder" style="display: none;">SK</div>
+                    <div class="team-name">Sanjay Kumar</div>
+                    <div class="team-role">Chief Executive Officer (CEO)</div>
+                    <div class="team-company">Cookies Tech</div>
+                </div>
+                
+                <div class="team-card">
+                    <!-- Replace the src attribute with your actual image path -->
+                    <img src="baskar.png" alt="Baskar" class="team-photo" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder" style="display: none;">B</div>
+                    <div class="team-name">Baskar</div>
+                    <div class="team-role">Chief Technology Officer (CTO)</div>
+                    <div class="team-company">Cookies Tech</div>
+                </div>
+                
+                <div class="team-card">
+                    <!-- Replace the src attribute with your actual image path -->
+                    <img src="harish.jpg" alt="Harish.N" class="team-photo" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder" style="display: none;">HN</div>
+                    <div class="team-name">Harish.N</div>
+                    <div class="team-role">Chief Operating Officer (COO)</div>
+                    <div class="team-company">Cookies Tech</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Tutoapp. All rights reserved. | Powered by Cookies Tech | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms & Conditions</a></p>
+    </footer>
+</body>
+</html>
