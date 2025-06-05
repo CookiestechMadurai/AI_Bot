@@ -1742,8 +1742,53 @@ document.addEventListener('DOMContentLoaded', () => {
         // Extract skills from resume
         extractedSkills = extractSkillsFromResume(resumeContent);
     
+        // Check for MBA keywords in extracted skills to detect MBA resume (case-insensitive)
+        const mbaKeywords = ['leadership', 'finance', 'marketing', 'project management', 'business strategy', 'product management', 'analytics'];
+
+        const mbaKeywordCount = extractedSkills.filter(skill => 
+            mbaKeywords.includes(skill.toLowerCase())
+        ).length;
+
+        // Debug: show detected skills and mbaKeywordCount
+        addBotMessage(`Detected skills: ${extractedSkills.join(', ')}`);
+        addBotMessage(`MBA keyword count: ${mbaKeywordCount}`);
+
+        // If MBA keywords are high or background is MBA, treat as MBA resume and redirect to MBA bot
+        if (mbaKeywordCount >= 2 || background === 'MBA') { // Threshold can be adjusted
+            function redirectToMBABot() {
+                window.location.href = 'mba1.html'; // Adjust the URL to your MBA bot page
+            }
+
+            addBotMessageWithButton(
+                "You have entered an MBA resume. We have an MBA bot you can try.",
+                "Go to MBA Bot",
+                "mba-bot-btn",
+                redirectToMBABot
+            );
+
+            return; // End interview initialization here
+        }
+
         // Generate questions based on skills
         questions = generateTechnicalQuestions();
+
+        // Determine if resume is CSE or MBA based on extracted skills
+        const programmingLanguages = ['JavaScript', 'Python', 'Java', 'C++', 'C', 'PHP', 'Swift', 'TypeScript'];
+
+        const hasProgrammingLanguage = extractedSkills.some(skill => programmingLanguages.includes(skill));
+
+        if (!hasProgrammingLanguage && background === 'MBA') {
+            function redirectToMBABot() {
+                window.location.href = 'mba1.html'; // Adjust the URL to your MBA bot page
+            }
+
+            addBotMessageWithButton(
+                "You have entered an MBA resume. We have an MBA bot you can try.",
+                "Go to MBA Bot",
+                "mba-bot-btn",
+                redirectToMBABot
+            );
+        }
     
         if (!questions || questions.length === 0) {
             console.error("No questions generated.");

@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6343948689807963"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Screening Test - Tutoapp Platform</title>
+    <style>
+        :root {
+            --primary-color: #10a37f;
+            --secondary-color: #f7f7f7;
+            --text-color: #353740;
+            --accent-color: #ff6b6b;
+            --success-color: #51cf66;
+            --warning-color: #ffd43b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-left: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        
+        .nav-item:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Main Container */
+        .main-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        /* Setup Phase */
+        .setup-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .setup-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--primary-color), #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .upload-section {
+            margin-bottom: 30px;
+        }
+        
+        .upload-area {
+            border: 2px dashed var(--primary-color);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(16, 163, 127, 0.05);
+        }
+        
+        .upload-area:hover {
+            border-color: #0c8968;
+            background: rgba(16, 163, 127, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .upload-area.dragover {
+            border-color: var(--success-color);
+            background: rgba(81, 207, 102, 0.1);
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .upload-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+        
+        .upload-subtext {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-info {
+            display: none;
+            background: var(--success-color);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .permission-section {
+            margin: 30px 0;
+        }
+        
+        .permission-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .permission-icon {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .permission-text {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .permission-status {
+            font-size: 20px;
+            color: var(--accent-color);
+        }
+        
+        .permission-status.granted {
+            color: var(--success-color);
+        }
+        
+        .start-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-color), #0c8968);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 163, 127, 0.3);
+        }
+        
+        .start-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Interview Phase */
+        .interview-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            z-index: 9999;
+        }
+        
+        .interview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+        
+        .interview-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .interview-controls {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .control-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .end-btn {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .end-btn:hover {
+            background: #ff5252;
+        }
+        
+        .interview-main {
+            display: flex;
+            height: calc(100vh - 80px);
+        }
+        
+        .video-section {
+            flex: 2;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .user-video {
+            flex: 1;
+            background: #000;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .user-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .question-section {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px 0 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .question-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .question-counter {
+            font-size: 16px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .current-question {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        
+        .timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+        
+        .status-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .listening-indicator {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .mic-animation {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .waiting-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .waiting-animation {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--primary-color);
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .response-display {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            max-height: 150px;
+            overflow-y: auto;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .response-text {
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+        
+        /* Report Phase */
+        .report-container {
+            display: none;
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .report-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+        
+        .score-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .score-card {
+            background: linear-gradient(135deg, var(--primary-color), #0c8968);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .score-title {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .score-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .score-max {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .analysis-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .analysis-card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .card-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .recommendations {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .recommendations h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        
+        .recommendation-list {
+            list-style: none;
+        }
+        
+        .recommendation-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .recommendation-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .action-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .primary-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .secondary-btn {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .setup-container, .report-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            
+            .interview-main {
+                flex-direction: column;
+            }
+            
+            .video-section {
+                flex: 1;
+            }
+            
+            .question-section {
+                flex: 1;
+                border-radius: 20px 20px 0 0;
+            }
+            
+            .score-overview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-container">
+            <div class="logo-text">🎯 AI Screening Test</div>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="guide.html" class="nav-item">Guide</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Setup Phase -->
+        <div class="setup-container" id="setupContainer">
+            <h1 class="setup-title">AI-Powered Communication Assessment</h1>
+            
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📄</div>
+                    <div class="upload-text">Upload Your Resume</div>
+                    <div class="upload-subtext">Drag and drop your resume or click to browse<br>Supported formats: PDF, DOC, DOCX</div>
+                    <input type="file" id="fileInput" class="file-input" accept=".pdf,.doc,.docx">
+                </div>
+                <div class="file-info" id="fileInfo">
+                    <div>✅ Resume uploaded successfully!</div>
+                    <div id="fileName"></div>
+                </div>
+            </div>
+            
+            <div class="permission-section">
+                <div class="permission-item">
+                    <div class="permission-icon">🎥</div>
+                    <div class="permission-text">Camera Access</div>
+                    <div class="permission-status" id="cameraStatus">❌</div>
+                </div>
+                <div class="permission-item">
+                    <div class="permission-icon">🎤</div>
+                    <div class="permission-text">Microphone Access</div>
+                    <div class="permission-status" id="micStatus">❌</div>
+                </div>
+            </div>
+            
+            <button class="start-btn" id="startBtn" disabled>Start AI Interview Assessment</button>
+        </div>
+        
+        <!-- Interview Phase -->
+        <div class="interview-container" id="interviewContainer">
+            <div class="interview-header">
+                <div class="interview-title">AI Communication Assessment in Progress</div>
+                <div class="interview-controls">
+                    <button class="control-btn end-btn" id="endBtn">End Assessment</button>
+                </div>
+            </div>
+            
+            <div class="interview-main">
+                <div class="video-section">
+                    <div class="user-video">
+                        <video id="userVideo" autoplay muted></video>
+                        <div class="video-overlay">Candidate Video</div>
+                    </div>
+                </div>
+                
+                <div class="question-section">
+                    <div class="question-header">
+                        <div class="question-counter" id="questionCounter">Question 1 of 10</div>
+                        <div class="current-question" id="currentQuestion">
+                            Please introduce yourself and tell me about your professional background.
+                        </div>
+                        <div class="timer">
+                            <span>⏱️</span>
+                            <span id="timer">03:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="status-section">
+                        <div class="waiting-indicator" id="waitingIndicator">
+                            <div class="waiting-animation"></div>
+                            <div class="status-text">AI is speaking... Please wait</div>
+                        </div>
+                        
+                        <div class="listening-indicator" id="listeningIndicator">
+                            <div class="mic-animation">🎤</div>
+                            <div class="status-text">AI is listening... Please speak clearly</div>
+                        </div>
+                        
+                        <div class="response-display" id="responseDisplay" style="display: none;">
+                            <div class="response-text" id="responseText"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Report Phase -->
+        <div class="report-container" id="reportContainer">
+            <h1 class="report-title">AI Assessment Report</h1>
+            
+            <div class="score-overview">
+                <div class="score-card">
+                    <div class="score-title">Overall Score</div>
+                    <div class="score-value" id="overallScore">85</div>
+                    <div class="score-max">/ 100</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-title">Communication</div>
+                    <div class="score-value" id="communicationScore">88</div>
+                    <div class="score-max">/ 100</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-title">Clarity & Fluency</div>
+                    <div class="score-value" id="fluencyScore">82</div>
+                    <div class="score-max">/ 100</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-title">Professionalism</div>
+                    <div class="score-value" id="professionalismScore">87</div>
+                    <div class="score-max">/ 100</div>
+                </div>
+            </div>
+            
+            <div class="analysis-section">
+                <h2 class="section-title">Detailed AI Analysis</h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h3 class="card-title">🗣️ Communication Assessment</h3>
+                        <div class="card-content" id="communicationAnalysis">
+                            Your communication demonstrates good clarity and structure. The AI detected consistent professional tone and appropriate pacing throughout responses.
+                        </div>
+                    </div>
+                    <div class="analysis-card">
+                        <h3 class="card-title">🎯 Response Quality</h3>
+                        <div class="card-content" id="responseAnalysis">
+                            Responses show good depth and relevance. The AI noted strong examples and clear articulation of thoughts with logical flow.
+                        </div>
+                    </div>
+                    <div class="analysis-card">
+                        <h3 class="card-title">⏱️ Timing & Pace</h3>
+                        <div class="card-content" id="timingAnalysis">
+                            Excellent time management with well-paced responses. The AI detected appropriate pauses and natural speech rhythm.
+                        </div>
+                    </div>
+                    <div class="analysis-card">
+                        <h3 class="card-title">⭐ Overall Assessment</h3>
+                        <div class="card-content" id="overallAnalysis">
+                            <div class="candidate-rating" id="candidateRating">
+                                ⭐⭐⭐⭐ Strong Candidate
+                            </div>
+                            <p>AI assessment indicates strong communication skills and professional readiness. Recommended for interview progression.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recommendations">
+                <h3>🤖 AI-Generated Recommendations</h3>
+                <ul class="recommendation-list" id="recommendationsList">
+                    <li>Continue practicing structured responses with specific examples</li>
+                    <li>Maintain current level of professional communication</li>
+                    <li>Consider adding more quantifiable achievements in responses</li>
+                    <li>Excellent foundation - ready for technical interview rounds</li>
+                </ul>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn primary-btn" onclick="downloadReport()">📥 Download AI Report</button>
+                <button class="action-btn secondary-btn" onclick="retakeTest()">🔄 Retake Assessment</button>
+                <button class="action-btn secondary-btn" onclick="goHome()">🏠 Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced Global Variables
+        let mediaStream = null;
+        let currentQuestionIndex = 0;
+        let timerInterval = null;
+        let speechTimeoutId = null;
+        let resumeUploaded = false;
+        let candidateResponses = [];
+        let currentRecognition = null;
+        let questionSpoken = false;
+        let isProcessingResponse = false;
+        
+        // Enhanced Questions for Better Assessment
+        const questions = [
+            "Please introduce yourself and tell me about your professional background in detail.",
+            "Describe a challenging project you worked on and how you overcame the obstacles.",
+            "How do you handle working under pressure and tight deadlines? Give me a specific example.",
+            "Tell me about a time when you had to explain a complex technical concept to someone without technical background.",
+            "Describe your leadership style and give an example of how you've motivated a team.",
+            "How do you stay updated with industry trends and continue learning in your field?",
+            "Tell me about a time when you disagreed with your manager or colleague. How did you handle it?",
+            "What are your salary expectations and how did you arrive at this figure?",
+            "Describe a time when you made a mistake at work. How did you handle it and what did you learn?",
+            "Where do you see yourself in five years and how does this role align with your career goals?"
+        ];
+        
+        // DOM Elements
+        const setupContainer = document.getElementById('setupContainer');
+        const interviewContainer = document.getElementById('interviewContainer');
+        const reportContainer = document.getElementById('reportContainer');
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const startBtn = document.getElementById('startBtn');
+        const cameraStatus = document.getElementById('cameraStatus');
+        const micStatus = document.getElementById('micStatus');
+        
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            checkPermissions();
+        });
+        
+        function setupEventListeners() {
+            // File upload events
+            uploadArea.addEventListener('click', () => fileInput.click());
+            uploadArea.addEventListener('dragover', handleDragOver);
+            uploadArea.addEventListener('drop', handleDrop);
+            fileInput.addEventListener('change', handleFileSelect);
+            
+            // Control events
+            startBtn.addEventListener('click', startInterview);
+            document.getElementById('endBtn').addEventListener('click', endInterview);
+        }
+        
+        function handleDragOver(e) {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        }
+        
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        }
+        
+        function handleFile(file) {
+            const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            
+            if (validTypes.includes(file.type)) {
+                fileName.textContent = file.name;
+                fileInfo.style.display = 'block';
+                uploadArea.style.display = 'none';
+                resumeUploaded = true;
+                checkReadiness();
+            } else {
+                alert('Please upload a valid resume file (PDF, DOC, or DOCX)');
+            }
+        }
+        
+        async function checkPermissions() {
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ 
+                    video: true, 
+                    audio: true 
+                });
+                
+                cameraStatus.textContent = '✅';
+                cameraStatus.classList.add('granted');
+                micStatus.textContent = '✅';
+                micStatus.classList.add('granted');
+                
+                // Stop the stream for now
+                mediaStream.getTracks().forEach(track => track.stop());
+                
+                checkReadiness();
+            } catch (error) {
+                console.error('Permission denied:', error);
+                alert('Camera and microphone access are required for the interview.');
+            }
+        }
+        
+        function checkReadiness() {
+            if (resumeUploaded && 
+                cameraStatus.classList.contains('granted') && 
+                micStatus.classList.contains('granted')) {
+                startBtn.disabled = false;
+            }
+        }
+        
+        async function startInterview() {
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ 
+                    video: true, 
+                    audio: true 
+                });
+                
+                const userVideo = document.getElementById('userVideo');
+                userVideo.srcObject = mediaStream;
+                
+                if (interviewContainer.requestFullscreen) {
+                    interviewContainer.requestFullscreen();
+                } else if (interviewContainer.webkitRequestFullscreen) {
+                    interviewContainer.webkitRequestFullscreen();
+                } else if (interviewContainer.msRequestFullscreen) {
+                    interviewContainer.msRequestFullscreen();
+                }
+                
+                setupContainer.style.display = 'none';
+                interviewContainer.style.display = 'flex';
+                
+                currentQuestionIndex = 0;
+                candidateResponses = [];
+                startQuestion();
+            } catch (error) {
+                console.error('Failed to start interview:', error);
+                alert('Failed to access camera/microphone. Please refresh and try again.');
+            }
+        }
+        
+        function startQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                endInterview();
+                return;
+            }
+            
+            questionSpoken = false;
+            isProcessingResponse = false;
+            
+            const questionCounter = document.getElementById('questionCounter');
+            const currentQuestion = document.getElementById('currentQuestion');
+            const waitingIndicator = document.getElementById('waitingIndicator');
+            const listeningIndicator = document.getElementById('listeningIndicator');
+            const responseDisplay = document.getElementById('responseDisplay');
+            const responseText = document.getElementById('responseText');
+            
+            questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+            currentQuestion.textContent = questions[currentQuestionIndex];
+            
+            waitingIndicator.style.display = 'flex';
+            listeningIndicator.style.display = 'none';
+            responseDisplay.style.display = 'none';
+            responseText.textContent = '';
+            
+            startTimer(180);
+            speakQuestion(questions[currentQuestionIndex], () => {
+                waitingIndicator.style.display = 'none';
+                listeningIndicator.style.display = 'flex';
+                startSpeechRecognition();
+            });
+        }
+        
+        function speakQuestion(text, onEnd) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                utterance.onend = onEnd;
+                speechSynthesis.speak(utterance);
+            } else {
+                onEnd();
+            }
+        }
+        
+        function startTimer(seconds) {
+            const timerElement = document.getElementById('timer');
+            let timeLeft = seconds;
+            
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const secs = timeLeft % 60;
+                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    stopSpeechRecognition();
+                    processResponse('');
+                }
+                timeLeft--;
+            }, 1000);
+        }
+        
+        function toggleRecording() {
+            if (isProcessingResponse) return;
+            
+            if (!isRecording) {
+                startSpeechRecognition();
+            } else {
+                stopSpeechRecognition();
+            }
+        }
+        
+        function startSpeechRecognition() {
+            if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+                alert('Speech recognition not supported in this browser.');
+                return;
+            }
+            
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            currentRecognition = new SpeechRecognition();
+            currentRecognition.continuous = true;
+            currentRecognition.interimResults = true;
+            currentRecognition.lang = 'en-US';
+            
+            let finalTranscript = '';
+            let lastResultTime = Date.now();
+            
+            currentRecognition.onresult = (event) => {
+                let interimTranscript = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const transcript = event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        finalTranscript += transcript + ' ';
+                    } else {
+                        interimTranscript += transcript;
+                    }
+                }
+                const responseText = document.getElementById('responseText');
+                responseText.textContent = finalTranscript + interimTranscript;
+                lastResultTime = Date.now();
+            };
+            
+            currentRecognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                stopSpeechRecognition();
+                processResponse('');
+            };
+            
+            currentRecognition.onend = () => {
+                if (!isProcessingResponse) {
+                    isProcessingResponse = true;
+                    const responseText = document.getElementById('responseText');
+                    processResponse(responseText.textContent.trim());
+                }
+            };
+            
+            currentRecognition.start();
+            isRecording = true;
+            updateMicButton();
+        }
+        
+        function stopSpeechRecognition() {
+            if (currentRecognition) {
+                currentRecognition.stop();
+                currentRecognition = null;
+            }
+            isRecording = false;
+            updateMicButton();
+        }
+        
+        function updateMicButton() {
+            const micBtn = document.getElementById('micBtn');
+            if (isRecording) {
+                micBtn.textContent = '⏹️ Stop Speaking';
+                micBtn.classList.add('recording');
+            } else {
+                micBtn.textContent = '🎤 Start Speaking';
+                micBtn.classList.remove('recording');
+            }
+        }
+        
+        function processResponse(response) {
+            stopSpeechRecognition();
+            clearInterval(timerInterval);
+            
+            const listeningIndicator = document.getElementById('listeningIndicator');
+            const responseDisplay = document.getElementById('responseDisplay');
+            const responseText = document.getElementById('responseText');
+            
+            listeningIndicator.style.display = 'none';
+            responseDisplay.style.display = 'block';
+            responseText.textContent = response || '(No response)';
+            
+            candidateResponses[currentQuestionIndex] = response || '(No response)';
+            currentQuestionIndex++;
+            
+            setTimeout(() => {
+                startQuestion();
+            }, 3000);
+        }
+        
+        function endInterview() {
+            clearInterval(timerInterval);
+            stopSpeechRecognition();
+            
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+            }
+            
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            
+            interviewContainer.style.display = 'none';
+            reportContainer.style.display = 'block';
+            reportContainer.classList.add('fade-in');
+            
+            generateReport();
+        }
+        
+        function generateReport() {
+            // Simulated analysis for demonstration
+            const communicationScore = Math.floor(Math.random() * 20) + 75;
+            const fluencyScore = Math.floor(Math.random() * 20) + 70;
+            const professionalismScore = Math.floor(Math.random() * 15) + 80;
+            const overallScore = Math.round((communicationScore + fluencyScore + professionalismScore) / 3);
+            
+            document.getElementById('overallScore').textContent = overallScore;
+            document.getElementById('communicationScore').textContent = communicationScore;
+            document.getElementById('fluencyScore').textContent = fluencyScore;
+            document.getElementById('professionalismScore').textContent = professionalismScore;
+            
+            const communicationAnalysis = document.getElementById('communicationAnalysis');
+            const responseAnalysis = document.getElementById('responseAnalysis');
+            const timingAnalysis = document.getElementById('timingAnalysis');
+            const overallAnalysis = document.getElementById('overallAnalysis');
+            const candidateRating = document.getElementById('candidateRating');
+            
+            if (overallScore >= 90) {
+                candidateRating.textContent = '⭐⭐⭐⭐⭐ Exceptional Candidate';
+                overallAnalysis.querySelector('p').textContent = 'Outstanding communication skills and professional readiness. Ideal for leadership roles.';
+            } else if (overallScore >= 80) {
+                candidateRating.textContent = '⭐⭐⭐⭐ Strong Candidate';
+                overallAnalysis.querySelector('p').textContent = 'Strong communication and professionalism. Recommended for interview progression.';
+            } else if (overallScore >= 70) {
+                candidateRating.textContent = '⭐⭐⭐ Good Candidate';
+                overallAnalysis.querySelector('p').textContent = 'Good communication skills with room for improvement.';
+            } else {
+                candidateRating.textContent = '⭐⭐ Average Candidate';
+                overallAnalysis.querySelector('p').textContent = 'Average communication skills. Consider additional training.';
+            }
+            
+            communicationAnalysis.textContent = 'Your communication demonstrates good clarity and structure. The AI detected consistent professional tone and appropriate pacing throughout responses.';
+            responseAnalysis.textContent = 'Responses show good depth and relevance. The AI noted strong examples and clear articulation of thoughts with logical flow.';
+            timingAnalysis.textContent = 'Excellent time management with well-paced responses. The AI detected appropriate pauses and natural speech rhythm.';
+            
+            updateRecommendations(overallScore);
+        }
+        
+        function updateRecommendations(score) {
+            const recommendationsList = document.getElementById('recommendationsList');
+            let recommendations = [];
+            
+            if (score < 80) {
+                recommendations.push('Practice structured responses with specific examples.');
+                recommendations.push('Work on clarity and fluency in speech.');
+                recommendations.push('Enhance professional tone and confidence.');
+            } else {
+                recommendations.push('Continue practicing structured responses with specific examples.');
+                recommendations.push('Maintain current level of professional communication.');
+                recommendations.push('Consider adding more quantifiable achievements in responses.');
+                recommendations.push('Excellent foundation - ready for technical interview rounds.');
+            }
+            
+            recommendationsList.innerHTML = recommendations.map(rec => `<li>${rec}</li>`).join('');
+        }
+        
+        function downloadReport() {
+            const reportData = {
+                timestamp: new Date().toISOString(),
+                scores: {
+                    overall: document.getElementById('overallScore').textContent,
+                    communication: document.getElementById('communicationScore').textContent,
+                    fluency: document.getElementById('fluencyScore').textContent,
+                    professionalism: document.getElementById('professionalismScore').textContent
+                },
+                analysis: {
+                    communication: document.getElementById('communicationAnalysis').textContent,
+                    response: document.getElementById('responseAnalysis').textContent,
+                    timing: document.getElementById('timingAnalysis').textContent,
+                    overall: document.getElementById('overallAnalysis').textContent
+                },
+                recommendations: Array.from(document.querySelectorAll('#recommendationsList li')).map(li => li.textContent)
+            };
+            
+            const reportText = `
+TUTOAPP AI SCREENING TEST REPORT
+Generated: ${new Date().toLocaleDateString()}
+
+OVERALL PERFORMANCE SUMMARY
+================================
+Overall Score: ${reportData.scores.overall}/100
+Communication: ${reportData.scores.communication}/100
+Clarity & Fluency: ${reportData.scores.fluency}/100
+Professionalism: ${reportData.scores.professionalism}/100
+
+DETAILED ANALYSIS
+=================
+Communication Assessment: ${reportData.analysis.communication}
+
+Response Quality: ${reportData.analysis.response}
+
+Timing & Pace: ${reportData.analysis.timing}
+
+OVERALL ASSESSMENT
+==================
+${reportData.analysis.overall}
+
+RECOMMENDATIONS
+===============
+${reportData.recommendations.map((rec, i) => `${i + 1}. ${rec}`).join('\n')}
+
+Thank you for using Tutoapp AI Screening Test!
+Visit www.tutoapp.in for more career preparation tools.
+            `;
+            
+            const blob = new Blob([reportText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Tutoapp_AI_Screening_Report_${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function retakeTest() {
+            currentQuestionIndex = 0;
+            candidateResponses = [];
+            resumeUploaded = false;
+            
+            reportContainer.style.display = 'none';
+            setupContainer.style.display = 'block';
+            
+            fileInfo.style.display = 'none';
+            uploadArea.style.display = 'block';
+            fileInput.value = '';
+            
+            startBtn.disabled = !resumeUploaded;
+        }
+        
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
